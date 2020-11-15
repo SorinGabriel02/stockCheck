@@ -1,0 +1,16 @@
+.filterStocksContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stocks {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  width: 80%;
+}
+
+.stocks li {
+  border-bottom: 2px solid salmon;
+}

@@ -1,3 +1,17 @@
 .App {
   text-align: center;
 }
+
+.welcome {
+  margin-top: 20vh;
+}
+
+a {
+  color: rgb(0, 153, 255);
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  text-shadow: 1px 1px black;
+}

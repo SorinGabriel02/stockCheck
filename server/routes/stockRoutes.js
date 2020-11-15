@@ -20,10 +20,12 @@ router.get("/find/:stockName", (req, res) => {
     if (stock) return res.json({ ...stock });
     // stock with this name not found
     res.status(404).json({
-      message: "We could not find any information about this stock.",
+      message: `We could not find a stock named ${stockName.toUpperCase()}.`,
     });
   } catch (error) {
-    res.sendStatus(500);
+    res
+      .status(500)
+      .json({ message: "Something went wrong. Please try again later." });
   }
 });
 
@@ -43,15 +45,19 @@ router.get("/filter/:price/:order", (req, res) => {
       });
     }
   } catch (error) {
-    res.sendStatus(500);
+    res
+      .status(500)
+      .json({ message: "Something went wrong. Please try again later." });
   }
 });
 
 router.post("/new", (req, res) => {
   try {
-    const { name, price } = req.body;
+    let { name, price } = req.body;
+    price = Number(price);
     // validate data send from the front-end
     if (typeof name !== "string" || !name.length || typeof price !== "number") {
+      console.log(name, price);
       return res.status(422).json({
         message: "Invalid data. Please check your inputs and try again.",
       });
@@ -64,7 +70,6 @@ router.post("/new", (req, res) => {
     }
     res.status(201).json({ name, price });
   } catch (error) {
-    console.log(error);
     res
       .status(500)
       .json({ message: "Something went wrong. Please try again later." });
