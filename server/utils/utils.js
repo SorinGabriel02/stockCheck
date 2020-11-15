@@ -7,23 +7,24 @@ function stocksToMemory() {
     result = fs.readFileSync("input.json", "utf8");
     stocks = JSON.parse(result);
   } catch (err) {
-    console.log(err);
+    throw err;
   }
 }
 
 function addNewStock(name, price) {
   try {
     name = name.toUpperCase();
-    // update the price if the stock already exists
+    // if stock already exists return an error message
     const stockExists = stocks.some((stock) => stock.name === name);
-    if (stockExists)
+    if (stockExists) {
       return `Unable to create new stock. '${name}' already exists.`;
+    }
+    // add new stock to memory
     stocks.push({ name, price });
     // update the .json file
     fs.writeFileSync("input.json", JSON.stringify(stocks), (err) => {
       if (err) throw err;
     });
-    return true;
   } catch (err) {
     throw err;
   }
