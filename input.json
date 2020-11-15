@@ -1,0 +1,42 @@
+[
+    {
+        "name": "AAPL",
+        "price": 6.5
+    },
+    {
+        "name": "BDF",
+        "price": 23.4
+    },
+    {
+        "name": "AAR",
+        "price": 12.2
+    },
+    {
+        "name": "GGH",
+        "price": 55.6
+    },
+    {
+        "name": "GGW",
+        "price": 10
+    },
+    {
+        "name": "OIL",
+        "price": 4.2
+    },
+    {
+        "name": "RRT",
+        "price": 16
+    },
+    {
+        "name": "RR",
+        "price": 7.5
+    },
+    {
+        "name": "ERT",
+        "price": 18.2
+    },
+    {
+        "name": "A",
+        "price": 99
+    }
+]
